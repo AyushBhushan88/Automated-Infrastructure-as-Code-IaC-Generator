@@ -100,7 +100,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Wizard & Generation | 0/3 | Not started | - |
+| 1. Core Wizard & Generation | 3/3 | Completed | 2026-03-23 |
 | 2. Visual Architecture Feedback | 0/1 | Not started | - |
 | 3. Static Security & Syntax Validation | 0/1 | Not started | - |
 | 4. Natural Language Generation | 0/1 | Not started | - |
