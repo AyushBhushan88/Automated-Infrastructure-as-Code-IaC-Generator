@@ -54,23 +54,23 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AUTH-01 | Phase [N] | Pending |
-| AUTH-02 | Phase [N] | Pending |
-| AUTH-03 | Phase [N] | Pending |
-| AUTH-04 | Phase [N] | Pending |
-| GEN-01 | Phase [N] | Pending |
-| GEN-02 | Phase [N] | Pending |
-| GEN-03 | Phase [N] | Pending |
-| VAL-01 | Phase [N] | Pending |
-| VAL-02 | Phase [N] | Pending |
-| VAL-03 | Phase [N] | Pending |
-| UI-01 | Phase [N] | Pending |
+| AUTH-01 | Phase 5 | Pending |
+| AUTH-02 | Phase 5 | Pending |
+| AUTH-03 | Phase 6 | Pending |
+| AUTH-04 | Phase 6 | Pending |
+| GEN-01 | Phase 1 | Pending |
+| GEN-02 | Phase 4 | Pending |
+| GEN-03 | Phase 1 | Pending |
+| VAL-01 | Phase 3 | Pending |
+| VAL-02 | Phase 7 | Pending |
+| VAL-03 | Phase 8 | Pending |
+| UI-01 | Phase 2 | Pending |
 
 **Coverage:**
 - v1 requirements: 11 total
-- Mapped to phases: 0
-- Unmapped: 11 ⚠️
+- Mapped to phases: 11
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: March 22, 2026*
-*Last updated: March 22, 2026 after initial definition*
+*Last updated: March 22, 2026 after roadmap creation*
