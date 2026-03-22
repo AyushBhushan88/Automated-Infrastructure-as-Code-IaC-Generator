@@ -1,0 +1,37 @@
+{
+  "name": "newproject3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "dev": "turbo run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyushBhushan88/Automated-Infrastructure-as-Code-IaC-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyushBhushan88/Automated-Infrastructure-as-Code-IaC-Generator/issues"
+  },
+  "homepage": "https://github.com/AyushBhushan88/Automated-Infrastructure-as-Code-IaC-Generator#readme",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "ts-node": "^10.9.2",
+    "turbo": "^2.8.20",
+    "typescript": "^5.9.3"
+  },
+  "packageManager": "npm@10.9.4",
+  "dependencies": {
+    "zod": "^4.3.6"
+  }
+}

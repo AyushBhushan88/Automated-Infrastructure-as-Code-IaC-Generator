@@ -21,7 +21,10 @@
   1. User can select stack components (languages, DBs, proxies) in a wizard.
   2. User can view generated Docker Compose and NGINX files.
   3. User can view generated Terraform and Kubernetes manifests.
-**Plans**: TBD
+**Plans**: 3 plans
+- [ ] 01-01-PLAN.md — Project Foundation & Configuration Schema
+- [ ] 01-02-PLAN.md — Infrastructure Generation Engines
+- [ ] 01-03-PLAN.md — Wizard UI & Generation Preview
 **UI hint**: yes
 
 ### Phase 2: Visual Architecture Feedback
@@ -97,7 +100,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Wizard & Generation | 0/1 | Not started | - |
+| 1. Core Wizard & Generation | 0/3 | Not started | - |
 | 2. Visual Architecture Feedback | 0/1 | Not started | - |
 | 3. Static Security & Syntax Validation | 0/1 | Not started | - |
 | 4. Natural Language Generation | 0/1 | Not started | - |
