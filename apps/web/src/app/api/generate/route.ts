@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { StackConfigurationSchema, generateFiles } from 'core';
+import { StackConfigurationSchema, generateFiles, ValidationService } from 'core';
 
 export async function POST(request: Request) {
   try {
@@ -12,9 +12,14 @@ export async function POST(request: Request) {
 
     const files = generateFiles(result.data);
 
+    // Run static analysis validation
+    const validationService = new ValidationService();
+    const validation = await validationService.validate(files);
+
     return NextResponse.json({
       success: true,
-      files
+      files,
+      validation
     });
   } catch (error) {
     console.error('Generation error:', error);

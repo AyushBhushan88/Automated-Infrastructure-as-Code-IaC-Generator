@@ -3,17 +3,19 @@
 import React, { useState } from 'react';
 import { Wizard } from '../../components/Wizard';
 import { CodePreview } from '../../components/CodePreview';
-import { StackConfiguration } from 'core';
+import { StackConfiguration, ValidationResult } from 'core';
 import { Terminal, Github, ShieldCheck, Zap } from 'lucide-react';
 
 export default function Home() {
   const [generatedFiles, setGeneratedFiles] = useState<Record<string, string>>({});
+  const [validation, setValidation] = useState<ValidationResult | undefined>(undefined);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleGenerate = async (config: StackConfiguration) => {
     setLoading(true);
     setError(null);
+    setValidation(undefined);
     try {
       const response = await fetch('/api/generate', {
         method: 'POST',
@@ -28,6 +30,9 @@ export default function Home() {
       const data = await response.json();
       if (data.success) {
         setGeneratedFiles(data.files);
+        if (data.validation) {
+          setValidation(data.validation);
+        }
       } else {
         throw new Error(data.error || 'Generation failed');
       }
@@ -113,7 +118,7 @@ export default function Home() {
                 </span>
               )}
             </div>
-            <CodePreview files={generatedFiles} />
+            <CodePreview files={generatedFiles} validation={validation} />
           </div>
         </div>
       </main>

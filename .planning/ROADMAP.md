@@ -2,9 +2,9 @@
 
 ## Phases
 
-- [ ] **Phase 1: Core Wizard & Generation** - Users can define stack requirements and see generated code.
-- [ ] **Phase 2: Visual Architecture Feedback** - Real-time visualization of the generated infrastructure.
-- [ ] **Phase 3: Static Security & Syntax Validation** - Immediate feedback on code correctness and security linting.
+- [x] **Phase 1: Core Wizard & Generation** - Users can define stack requirements and see generated code.
+- [x] **Phase 2: Static Security & Syntax Validation** - Immediate feedback on code correctness and security linting.
+- [ ] **Phase 3: Visual Architecture Feedback** - Real-time visualization of the generated infrastructure.
 - [ ] **Phase 4: Natural Language Generation** - Prompt-based infrastructure generation and refinement.
 - [ ] **Phase 5: Git Provider Integration** - Secure GitHub/GitLab connectivity and repository selection.
 - [ ] **Phase 6: Automated Git Delivery** - Commits and Pull Requests directly from the tool.
@@ -22,28 +22,29 @@
   2. User can view generated Docker Compose and NGINX files.
   3. User can view generated Terraform and Kubernetes manifests.
 **Plans**: 3 plans
-- [ ] 01-01-PLAN.md — Project Foundation & Configuration Schema
-- [ ] 01-02-PLAN.md — Infrastructure Generation Engines
-- [ ] 01-03-PLAN.md — Wizard UI & Generation Preview
+- [x] 01-01-PLAN.md — Project Foundation & Configuration Schema
+- [x] 01-02-PLAN.md — Infrastructure Generation Engines
+- [x] 01-03-PLAN.md — Wizard UI & Generation Preview
 **UI hint**: yes
 
-### Phase 2: Visual Architecture Feedback
-**Goal**: Users can see a visual representation of their infrastructure.
-**Depends on**: Phase 1
-**Requirements**: UI-01
-**Success Criteria** (what must be TRUE):
-  1. User sees an interactive diagram of the generated infrastructure components.
-  2. Changes in the wizard are reflected in the diagram in real-time.
-**Plans**: TBD
-**UI hint**: yes
-
-### Phase 3: Static Security & Syntax Validation
+### Phase 2: Static Security & Syntax Validation
 **Goal**: Users receive immediate feedback on code correctness and security.
 **Depends on**: Phase 1
 **Requirements**: VAL-01
 **Success Criteria** (what must be TRUE):
   1. User sees syntax errors highlighted in the generated code.
   2. User receives a security report based on static analysis (Checkov/Trivy).
+**Plans**: 1 plan
+- [x] 02-01-PLAN.md — Static Analysis Setup & Integration
+**UI hint**: yes
+
+### Phase 3: Visual Architecture Feedback
+**Goal**: Users can see a visual representation of their infrastructure.
+**Depends on**: Phase 1
+**Requirements**: UI-01
+**Success Criteria** (what must be TRUE):
+  1. User sees an interactive diagram of the generated infrastructure components.
+  2. Changes in the wizard are reflected in the diagram in real-time.
 **Plans**: TBD
 **UI hint**: yes
 
@@ -101,8 +102,8 @@
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Core Wizard & Generation | 3/3 | Completed | 2026-03-23 |
-| 2. Visual Architecture Feedback | 0/1 | Not started | - |
-| 3. Static Security & Syntax Validation | 0/1 | Not started | - |
+| 2. Static Security & Syntax Validation | 1/1 | Completed | 2026-03-24 |
+| 3. Visual Architecture Feedback | 0/1 | Not started | - |
 | 4. Natural Language Generation | 0/1 | Not started | - |
 | 5. Git Provider Integration | 0/1 | Not started | - |
 | 6. Automated Git Delivery | 0/1 | Not started | - |

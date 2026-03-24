@@ -58,13 +58,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | AUTH-02 | Phase 5 | Pending |
 | AUTH-03 | Phase 6 | Pending |
 | AUTH-04 | Phase 6 | Pending |
-| GEN-01 | Phase 1 | Pending |
+| GEN-01 | Phase 1 | Completed |
 | GEN-02 | Phase 4 | Pending |
-| GEN-03 | Phase 1 | Pending |
-| VAL-01 | Phase 3 | Pending |
+| GEN-03 | Phase 1 | Completed |
+| VAL-01 | Phase 2 | Completed |
 | VAL-02 | Phase 7 | Pending |
 | VAL-03 | Phase 8 | Pending |
-| UI-01 | Phase 2 | Pending |
+| UI-01 | Phase 3 | Pending |
 
 **Coverage:**
 - v1 requirements: 11 total

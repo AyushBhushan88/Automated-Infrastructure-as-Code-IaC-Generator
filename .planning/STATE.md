@@ -7,10 +7,10 @@
 
 ## Current Position
 
-**Phase**: 2 - Static Validation & Security
-**Plan**: 02-01 (Static Analysis Setup)
-**Status**: Pending
-**Progress**: [====      ] 40%
+**Phase**: 2 - Static Security & Syntax Validation
+**Plan**: 02-01 (Static Analysis Setup & Integration)
+**Status**: Completed
+**Progress**: [====      ] 50%
 
 ## Performance Metrics
 
@@ -22,7 +22,13 @@
 ## Accumulated Context
 
 ### Critical Decisions
-... (rest of critical decisions) ...
+- **Validation**: Chose Checkov and Trivy for static analysis, with a Node.js wrapper for CLI integration.
+- **Unified UI**: Integrated security report directly into the code preview component with tab-based navigation.
+
+### Key Technical Findings
+- **Checkov/Trivy**: Excellent for IaC but require binary presence in the runtime environment. Graceful degradation is essential.
+- **Prism Integration**: Custom styling added to highlight lines with security issues in the editor.
+ (rest of critical decisions) ...
 
 ### Key Technical Findings
 - **Stack**: Node.js/Next.js for the core, Firecracker for sandboxing, LocalStack for AWS emulation.
