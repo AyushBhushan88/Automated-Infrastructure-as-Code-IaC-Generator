@@ -1,13 +1,14 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { StackConfigurationSchema, StackConfiguration } from 'core';
+import { StackConfigurationSchema, StackConfiguration } from 'core/client';
 import { ChevronRight, ChevronLeft, Loader2 } from 'lucide-react';
 
 interface WizardProps {
   onGenerate: (data: StackConfiguration) => Promise<void>;
+  onChange?: (data: StackConfiguration) => void;
   loading: boolean;
 }
 
@@ -18,7 +19,7 @@ const STEPS = [
   { id: 'infrastructure', title: 'Infrastructure' },
 ];
 
-export function Wizard({ onGenerate, loading }: WizardProps) {
+export function Wizard({ onGenerate, onChange, loading }: WizardProps) {
   const [currentStep, setCurrentStep] = useState(0);
 
   const {
@@ -38,6 +39,14 @@ export function Wizard({ onGenerate, loading }: WizardProps) {
       infrastructure: [],
     },
   });
+
+  const formData = watch();
+
+  useEffect(() => {
+    if (onChange) {
+      onChange(formData);
+    }
+  }, [formData, onChange]);
 
   const next = () => setCurrentStep((s) => Math.min(s + 1, STEPS.length - 1));
   const back = () => setCurrentStep((s) => Math.max(s - 1, 0));
