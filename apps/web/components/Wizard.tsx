@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { StackConfigurationSchema, StackConfiguration } from 'core/client';
-import { ChevronRight, ChevronLeft, Loader2 } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Loader2, Github } from 'lucide-react';
+import { useSession, signIn } from 'next-auth/react';
 
 interface WizardProps {
   onGenerate: (data: StackConfiguration) => Promise<void>;
@@ -17,15 +18,20 @@ const STEPS = [
   { id: 'stack', title: 'Stack' },
   { id: 'database', title: 'Database' },
   { id: 'infrastructure', title: 'Infrastructure' },
+  { id: 'git', title: 'Git Settings' },
 ];
 
 export function Wizard({ onGenerate, onChange, loading }: WizardProps) {
   const [currentStep, setCurrentStep] = useState(0);
+  const { data: session } = useSession();
+  const [repositories, setRepositories] = useState<any[]>([]);
+  const [loadingRepos, setLoadingRepos] = useState(false);
 
   const {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors, isValid },
   } = useForm<StackConfiguration>({
     resolver: zodResolver(StackConfigurationSchema),
@@ -47,6 +53,20 @@ export function Wizard({ onGenerate, onChange, loading }: WizardProps) {
       onChange(formData);
     }
   }, [formData, onChange]);
+
+  useEffect(() => {
+    if (session) {
+      setLoadingRepos(true);
+      fetch('/api/github/repos')
+        .then(res => res.json())
+        .then(data => {
+          if (data.repositories) {
+            setRepositories(data.repositories);
+          }
+        })
+        .finally(() => setLoadingRepos(false));
+    }
+  }, [session]);
 
   const next = () => setCurrentStep((s) => Math.min(s + 1, STEPS.length - 1));
   const back = () => setCurrentStep((s) => Math.max(s - 1, 0));
@@ -167,6 +187,75 @@ export function Wizard({ onGenerate, onChange, loading }: WizardProps) {
                 <span>Kubernetes</span>
               </label>
             </div>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="space-y-4">
+            <h3 className="text-lg font-medium text-gray-900">Git Integration</h3>
+            {!session ? (
+              <button
+                type="button"
+                onClick={() => signIn('github')}
+                className="flex items-center justify-center w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+              >
+                <Github className="w-5 h-5 mr-3 text-gray-900" />
+                Connect GitHub
+              </button>
+            ) : (
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3 p-3 bg-gray-50 rounded-md border border-gray-200">
+                  <img
+                    src={session.user?.image || ''}
+                    alt={session.user?.name || ''}
+                    className="w-8 h-8 rounded-full"
+                  />
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">{session.user?.name}</p>
+                    <p className="text-xs text-gray-500">Connected to GitHub</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700">Select Repository</label>
+                  {loadingRepos ? (
+                    <div className="flex items-center space-x-2 mt-2 text-gray-500 text-sm">
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Loading repositories...</span>
+                    </div>
+                  ) : repositories.length > 0 ? (
+                    <select
+                      {...register('git.repository')}
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
+                    >
+                      <option value="">Choose a repository</option>
+                      {repositories.map(repo => (
+                        <option key={repo.id} value={repo.full_name}>
+                          {repo.full_name}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    <div className="mt-1 p-3 bg-yellow-50 rounded-md border border-yellow-200">
+                      <p className="text-xs text-yellow-700">
+                        No authorized repositories found. Make sure the GitHub App is installed and has access to your repos.
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {watch('git.repository') && (
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700">Target Branch</label>
+                    <input
+                      {...register('git.branch')}
+                      placeholder="main"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2 border"
+                    />
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         );
       default:

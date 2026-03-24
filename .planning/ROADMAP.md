@@ -6,8 +6,8 @@
 - [x] **Phase 2: Static Security & Syntax Validation** - Immediate feedback on code correctness and security linting.
 - [ ] **Phase 3: Visual Architecture Feedback** - Real-time visualization of the generated infrastructure.
 - [ ] **Phase 4: Natural Language Generation** - Prompt-based infrastructure generation and refinement.
-- [ ] **Phase 5: Git Provider Integration** - Secure GitHub/GitLab connectivity and repository selection.
-- [ ] **Phase 6: Automated Git Delivery** - Commits and Pull Requests directly from the tool.
+- [x] **Phase 5: Git Provider Integration** - Secure GitHub/GitLab connectivity and repository selection.
+- [x] **Phase 6: Automated Git Delivery** - Commits and Pull Requests directly from the tool.
 - [ ] **Phase 7: Sandboxed Runtime Verification** - Executing and verifying code in isolated environments.
 - [ ] **Phase 8: AI-Driven Security & Logic Analysis** - Deep architectural review and logical flaw detection.
 
@@ -45,7 +45,8 @@
 **Success Criteria** (what must be TRUE):
   1. User sees an interactive diagram of the generated infrastructure components.
   2. Changes in the wizard are reflected in the diagram in real-time.
-**Plans**: TBD
+**Plans**: 1 plan
+- [x] 03-01-PLAN.md — Visual Architecture Visualization
 **UI hint**: yes
 
 ### Phase 4: Natural Language Generation
@@ -65,7 +66,8 @@
 **Success Criteria** (what must be TRUE):
   1. User can log in via GitHub/GitLab OAuth.
   2. User can see and select specific repositories they have authorized.
-**Plans**: TBD
+**Plans**: 1 plan
+- [x] 04-01-PLAN.md — Git Integration & OAuth Foundation
 **UI hint**: yes
 
 ### Phase 6: Automated Git Delivery
@@ -75,7 +77,8 @@
 **Success Criteria** (what must be TRUE):
   1. User can commit generated files to a new branch with one click.
   2. User can open a Pull Request with an automatically generated description.
-**Plans**: TBD
+**Plans**: 1 plan
+- [x] 05-01-PLAN.md — Automated Git Delivery
 **UI hint**: yes
 
 ### Phase 7: Sandboxed Runtime Verification
@@ -103,9 +106,9 @@
 |-------|----------------|--------|-----------|
 | 1. Core Wizard & Generation | 3/3 | Completed | 2026-03-23 |
 | 2. Static Security & Syntax Validation | 1/1 | Completed | 2026-03-24 |
-| 3. Visual Architecture Feedback | 0/1 | Not started | - |
+| 3. Visual Architecture Feedback | 1/1 | Completed | 2026-03-24 |
 | 4. Natural Language Generation | 0/1 | Not started | - |
-| 5. Git Provider Integration | 0/1 | Not started | - |
-| 6. Automated Git Delivery | 0/1 | Not started | - |
+| 5. Git Provider Integration | 1/1 | Completed | 2026-03-24 |
+| 6. Automated Git Delivery | 1/1 | Completed | 2026-03-24 |
 | 7. Sandboxed Runtime Verification | 0/1 | Not started | - |
 | 8. AI-Driven Security & Logic Analysis | 0/1 | Not started | - |

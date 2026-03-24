@@ -177,7 +177,11 @@ export default function Home() {
                   <Flow initialNodes={flowData.nodes} initialEdges={flowData.edges} />
                 </div>
               ) : (
-                <CodePreview files={generatedFiles} validation={validation} />
+                <CodePreview 
+                  files={generatedFiles} 
+                  validation={validation} 
+                  config={currentConfig}
+                />
               )}
             </div>
           </div>

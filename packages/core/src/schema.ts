@@ -16,7 +16,12 @@ export const StackConfigurationSchema = z.object({
     version: z.string()
   }),
   proxy: z.literal('nginx'),
-  infrastructure: z.array(z.enum(['terraform', 'kubernetes']))
+  infrastructure: z.array(z.enum(['terraform', 'kubernetes'])),
+  git: z.object({
+    repository: z.string().optional(),
+    branch: z.string().optional(),
+    organization: z.string().optional(),
+  }).optional()
 });
 
 export type StackConfiguration = z.infer<typeof StackConfigurationSchema>;
